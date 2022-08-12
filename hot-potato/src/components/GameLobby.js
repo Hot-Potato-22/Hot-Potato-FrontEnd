@@ -16,7 +16,7 @@ function GameLobby(){
 
     const [ makePublicInfo, setMakePublicInfo ] = useState([])
 
-    const [ deleteInfo, setDeleteInfo ] = useState([]);
+    // const [ deleteInfo, setDeleteInfo ] = useState([]);
 
     useEffect(() => {
         context.getAllGames().then(gamesList => {
@@ -54,19 +54,24 @@ function GameLobby(){
         })
     }
 
-    const handleCloseGameClick = event => {
-        const gameId = params.id
-        setDeleteInfo({
-            game_id : gameId
-        })
-    }
+    // const handleCloseGameClick = event => {
+    //     const gameId = params.id
+    //     setDeleteInfo({
+    //         game_id : gameId
+    //     })
+    // }
 
-    const deleteGame = async (deleteInfo) => {
-        const response = await fetch(`http://localhost:3032/game/${params.id}`, {
-            method: "DELTE",
-            
-        })
-    }
+    // const deleteGame = async (deleteInfo) => {
+    //     const response = await fetch(`http://localhost:3032/game/${params.id}`, {
+    //         method: "DELETE", 
+    //         headers : {
+    //             "Content-Type" : "application/json",
+    //         },
+    //         body : JSON.stringify(deleteInfo)
+    //     })
+    //     const data = await response.json()
+    //     return data;
+    // }
 
     const makeGamePublic = async (makePublicInfo) => {
         const response = await fetch(`http://localhost:3032/game/${params.id}/public`, {
@@ -100,6 +105,10 @@ function GameLobby(){
         makeGamePublic(makePublicInfo)
     }, [makePublicInfo])
 
+    // useEffect(() => {
+    //     deleteGame(deleteInfo)
+    // }, [deleteInfo])
+
     return (
         <div>
             <p>Players in the Lobby: {params.id} </p>
@@ -113,7 +122,7 @@ function GameLobby(){
                     <div>
                         <button>Start</button>
                         <button onClick={handlePublicClick}>{isClicked ? 'Private' : 'Public'}</button>
-                        <button onClick={handleCloseGameClick}>Close Game</button>
+                        <button>Close Game</button>
                     </div>
                 }
             </div>
