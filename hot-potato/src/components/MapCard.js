@@ -12,6 +12,7 @@ function MapCard(props){
         })
     }, [])
 
+
     return (
         <div className="map-container">
             <div>

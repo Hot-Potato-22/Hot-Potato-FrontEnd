@@ -32,7 +32,6 @@ function SignUp(){
 
     React.useEffect(() => {
         createNewPlayer(playerInfo).then(newPlayerData => {
-            console.log(`This is the new player data: ${newPlayerData}`);
             context.updateToken(newPlayerData.token)
         })
     }, [playerInfo])
@@ -56,7 +55,7 @@ function SignUp(){
                 <button type='submit'> Submit </button>
             </form>
             <span>
-                <Link to="/login" >Login</Link>
+                <Link to="/" >Login</Link>
             </span>
         </div>
     )

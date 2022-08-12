@@ -56,9 +56,8 @@ function Login(){
                 </div>
                 <button type='submit'> Submit </button>
             </form>
-            <span>
-                <Link to="/" >SignUp</Link>
-            </span>
+            <span>Don't have an account? <Link to="/signup" >SignUp</Link></span>
+            <Link to="/start">Start Page</Link>
         </div>
     )
 }

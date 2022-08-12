@@ -7,17 +7,19 @@ import CreateGame from './pages/createGame';
 import JoinGame from './pages/joinGame';
 import SocketTest from './components/SocketTest';
 import Start from './pages/start';
+import GameLobby from './components/GameLobby';
 
 function App() {
   return (
     <Router>
       <Routes>
         <Route exact path='/socket' element={<SocketTest></SocketTest>}/>
-        <Route exact path='/' element={<Start></Start>} />
-        <Route exact path='/signup' element={<SignUp></SignUp>}/>
-        <Route exact path='/login' element={<Login></Login>}/>
-        <Route exact path='/create' element={<CreateGame></CreateGame>}/>
-        <Route exact path='/join' element={<JoinGame></JoinGame>}/>
+        <Route exact path='/' element={<Login />} />
+        <Route exact path='/signup' element={<SignUp />}/>
+        <Route exact path='/start' element={<Start />}/>
+        <Route exact path='/create' element={<CreateGame />}/>
+        <Route exact path='/join' element={<JoinGame />}/>
+        <Route path="Hot-Potato/games/:id" element={<GameLobby />} />
       </Routes>
     </Router>
   );

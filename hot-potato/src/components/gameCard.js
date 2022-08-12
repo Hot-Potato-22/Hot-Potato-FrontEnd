@@ -1,12 +1,17 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import Context from "../context/Context";
+import { useParams, useNavigate } from "react-router";
+import { Link } from "react-router-dom";
+
 
 function GameCard(props){
+    const params = useParams();
+    let navigate = useNavigate();
+    const context = useContext(Context)
+    
     const { game } = props;
     const [ selectedGame, setSelectedGame ] = useState([])
 
-    // store a game's map
-    // const [ selectedGameMap, setSelectedGameMap ] = useState([])
-    
     // To retrieve a specific game
     useEffect(() => {
         fetch(`http://localhost:3032/games/${game.game_id}`)
@@ -16,61 +21,47 @@ function GameCard(props){
         })
     }, [])
     
-    // To retrieve the specific game's map to show on front-end
-    // useEffect(() => {
-    //     fetch(`http://localhost:3032/game/${game.game_id}/map/${game.map_id}`)
-    //     .then(res => res.json())
-    //     .then((data) => {
-    //         setSelectedGameMap(data)
-    //     })
-    // }, [])
-
-    // If a game is Public then the player is free to join once they click 'join'
-    const IsPublic = event => {
-        console.log('Game is Public')
-    }
-
+    // opens the room code form
     const [isShown, setIsShown] = useState(false);
     const handleClick = event => {
         setIsShown(true);
     };
 
-    const [ enteredCode, setEnteredCode ] = useState({})
+    const [ enteredInfo, setEnteredInfo ] = useState({})
 
-    const handleSubmit = event => {
+    const handleSubmit = (event) => {
         event.preventDefault()
-        console.log(event.target.code.value)
         const codeEntered = event.target.code.value;
+        const player = context.verifiedPlayer.playerInfo.player_id
+        const gameId = params.id
+        console.log(player, gameId, codeEntered)
 
-        setEnteredCode({
-            room_code : codeEntered
+        setEnteredInfo({
+            player_id : player,
+            game_id : gameId
         })
     }
 
-    const postPlayerInGame = async (code) => {
-        const response = await fetch("http://localhost:3032/join", {
-            method : "POST",
+    const postPlayerInGame = async (postPlayerInfo) => {
+        const response = await fetch(`http://localhost:3032/game/${game.game_id}/lobby`, {
+            method: "POST",
             headers : {
                 "Content-Type" : "application/json",
             },
-            body : JSON.stringify(code)   
+            body : JSON.stringify(postPlayerInfo)
         })
-        const data = await response.json()
+        const data = await response.json();
         return data;
     }
-
-    const handleJoin = event => {
-        
-    }
-
+    // closes the room code form 
     const handleSecondClick = event => {
         setIsShown(false);
     }
 
-
+    // Handles the 
     useEffect(() => {
-        postPlayerInGame(enteredCode)
-    }, [enteredCode])
+        postPlayerInGame(enteredInfo)
+    }, [enteredInfo])
 
     return (
         <div className="game-card">
@@ -80,15 +71,16 @@ function GameCard(props){
             </div>
             <div className="margin">{game.hosted_by}</div>
             <div className="margin">{game.is_public === false ? 'Private' : 'Public'}</div>
-            <button className="btn" onClick={ game.is_public === false ? handleClick : IsPublic }>Join</button>
+            <button className="btn" onClick={  handleClick  }>Join</button>
 
             { isShown && (
                 <div>
                     <form onSubmit={handleSubmit}>
                         <input type="text" name="code" placeholder="Enter the room code"></input>
-                        <button onClick={handleJoin} type="submit">Enter</button>
+                        <button type="submit">Enter</button>
                     </form>
                     <button onClick={handleSecondClick}>Cancle</button>
+                    <button><Link to={`/Hot-Potato/games/${game.game_id}`}>Link</Link></button>
                 </div>
             )}
         </div>
