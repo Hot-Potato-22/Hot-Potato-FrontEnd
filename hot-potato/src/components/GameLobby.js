@@ -16,8 +16,6 @@ function GameLobby(){
 
     const [ makePublicInfo, setMakePublicInfo ] = useState([])
 
-    // const [ deleteInfo, setDeleteInfo ] = useState([]);
-
     useEffect(() => {
         context.getAllGames().then(gamesList => {
             updateCurrentGame(gamesList.find(games => games.game_id == params.id))
@@ -54,25 +52,6 @@ function GameLobby(){
         })
     }
 
-    // const handleCloseGameClick = event => {
-    //     const gameId = params.id
-    //     setDeleteInfo({
-    //         game_id : gameId
-    //     })
-    // }
-
-    // const deleteGame = async (deleteInfo) => {
-    //     const response = await fetch(`http://localhost:3032/game/${params.id}`, {
-    //         method: "DELETE", 
-    //         headers : {
-    //             "Content-Type" : "application/json",
-    //         },
-    //         body : JSON.stringify(deleteInfo)
-    //     })
-    //     const data = await response.json()
-    //     return data;
-    // }
-
     const makeGamePublic = async (makePublicInfo) => {
         const response = await fetch(`http://localhost:3032/game/${params.id}/public`, {
             method: "PATCH",
@@ -104,10 +83,6 @@ function GameLobby(){
     useEffect(() => {
         makeGamePublic(makePublicInfo)
     }, [makePublicInfo])
-
-    // useEffect(() => {
-    //     deleteGame(deleteInfo)
-    // }, [deleteInfo])
 
     return (
         <div>

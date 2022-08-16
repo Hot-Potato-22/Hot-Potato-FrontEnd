@@ -10,8 +10,6 @@ function Login(){
         event.preventDefault();
         const playerUsername = event.target.username.value;
         const playerPassword = event.target.password.value;
-        console.log(playerUsername, playerPassword);
-
         setPlayerInfo({
             username : playerUsername,
             password : playerPassword

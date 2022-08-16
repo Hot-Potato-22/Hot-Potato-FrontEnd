@@ -7,7 +7,6 @@ function CreateGame(){
     const navigate = useNavigate()
 
     const [ gameInfo, setGameInfo ] = useState({})
-    const [ enteredInfo, setEnteredInfo ] = useState({})
 
     const context = useContext(Context);
 
@@ -26,12 +25,14 @@ function CreateGame(){
         event.preventDefault();
         const mapId = "1"
         const hostedBy = context.verifiedPlayer.playerInfo.username
+        const hostId = context.verifiedPlayer.playerInfo.player_id
         let roomCode = generateCode()
-        console.log(mapId, hostedBy, roomCode)
+        console.log(mapId, hostedBy, hostId, roomCode)
         setGameInfo({
             map_id : mapId,
             room_code : roomCode,
-            hosted_by : hostedBy 
+            hosted_by : hostedBy,
+            host_id: hostId
         })
     }
 
@@ -53,33 +54,6 @@ function CreateGame(){
         })
     }, [gameInfo])
 
-    const handleClick = (event) => {
-        const player = context.verifiedPlayer.playerInfo.username
-        const gameId = gameInfo.game_id
-        console.log(player, gameId)
-
-        setEnteredInfo({
-            player_id: player,
-            game_id: gameId
-        })
-    }
-
-    const postPlayerInGame = async (postPlayerInfo) => {
-        const response = await fetch(`http://localhost:3032/game/${gameInfo.game_id}/lobby`, {
-            method: "POST",
-            headers : {
-                "Content-Type" : "application/json",
-            },
-            body : JSON.stringify(postPlayerInfo)
-        })
-        const data = await response.json();
-        return data;
-    }
-
-    useEffect(() => {
-        postPlayerInGame(enteredInfo)
-    }, [enteredInfo])
-
     return (
         <div>
             <button onClick={() => navigate('/')}>Go back</button>
@@ -91,7 +65,7 @@ function CreateGame(){
                 </div>
             </form>
             <div className="create-btn-div">
-            <button className="create-btn" onClick={handleClick}><Link to={`/Hot-Potato/games/${gameInfo.game_id}`}>Go to</Link></button>
+            <button></button>
             </div>
         </div>
     )
