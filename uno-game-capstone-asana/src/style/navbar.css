@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Alumni+Sans+Pinstripe&display=swap');
+
+.navbar-container{
+    background-color: white;
+    width: 100vw;
+    height: 90px;
+   
+    position:fixed;
+}
+.nav-heading{ 
+    padding-left: 20px;
+    color: black;
+    font-size:60px;
+    font-weight: bolder;
+    font-family: 'Alumni Sans Pinstripe', sans-serif;
+}
+.nav-heading:hover{
+    color: black;
+  
+}
+.nav-name{
+    font-family: 'Alumni Sans Pinstripe', sans-serif;
+    font-size: 45px;
+    font-weight: bolder;
+    padding-right: 40px;
+}
+
+.img{
+    margin-top: -10px;
+}
+
+.rules-button.red {
+  background: repeating-linear-gradient( 45deg, #ff4f4c, #ff4f4c 5px, #ff4643 5px, #ff4643 10px);
+  box-shadow: 0 6px 0 #ae2725, 0 8px 1px 1px rgba(0,0,0,.3), 0 10px 0 5px #831614, 0 12px 0 5px #a33634, 0 15px 0 5px #631716, 0 15px 1px 6px rgba(0,0,0,.3);
+  border-bottom: 3px solid rgba(160, 25, 23, 0.5);
+  text-shadow: 2px 2px 1px #d72d21, -2px 2px 1px #d72d21, 2px -2px 1px #d72d21, -2px -2px 1px #d72d21, 0px 2px 1px #d72d21, 0px -2px 1px #d72d21, 0px 4px 1px #930704, 2px 4px 1px #930704, -2px 4px 1px  #930704;
+    
+    margin-right: 40px;
+    margin-top: -30px;
+}
+
+.rules-button.red:hover {
+  top:2px;
+  box-shadow: 0 4px 0 #ae2725, 0 6px 1px 1px rgba(0,0,0,.3), 0 8px 0 5px #831614, 0 10px 0 5px #a33634, 0 13px 0 5px #631716, 0 13px 1px 6px rgba(0,0,0,.3);
+}

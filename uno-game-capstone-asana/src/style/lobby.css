@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Iso&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alumni+Sans+Pinstripe&display=swap');
+.heading{
+    animation: bounceIn ;
+    animation-duration: 3.5s;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 180px;
+   
+}
+.heading h2{
+     color:white;
+    font-family: 'Rubik Iso', cursive;
+    font-size: 70px;
+}
+.text{
+font-size: 25px;
+font-weight: bolder;
+font-family: 'Alumni Sans Pinstripe', sans-serif;
+align-items: center;
+    width: 430px; 
+    color: white;
+}
+
+.game-control{
+    padding-top: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+.game-control p { 
+    padding-top: 10px;
+    color: white;
+}
+.game-control-btn{
+background-color: white;
+width: 130px;
+height: 40px;
+ border: none;
+ border-radius: 25px;
+}
+.game-control input{
+    border-radius: 25px;
+    height: 40px;
+}
+
+
+.join-btn{
+padding-right: 10px;
+}
+

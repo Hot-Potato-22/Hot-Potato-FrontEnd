@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Alumni+Sans+Pinstripe&display=swap');
+
+body{
+   background-image: url('https://images.unsplash.com/photo-1617783919130-c8566c8d3b7f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fHVub3xlbnwwfHwwfHw%3D&w=1000&q=80');
+   background-repeat: no-repeat;
+  background-size: 100vw;
+}
+
+.form{
+    padding-top: 50px;
+}
+
+.form-container{
+   
+display:flex;
+flex-direction: column;
+justify-content: center;
+/* text-align: center; */
+align-items: center;
+padding-top: 100px;
+
+/* width: 300px; */
+}
+
+.form-container Label{
+color: white;
+}
+.form-container h2{
+    font-weight:bolder;
+    font-family: 'Alumni Sans Pinstripe', sans-serif;
+   color: white; 
+      font-size:65px;
+    
+}
+.form-container p {
+    color: white;
+}
+.form-container button{
+    width: 80px;
+    height: 40px;
+     border: none;
+     border-radius: 25px;
+     
+}
+.link {
+    color: white;
+}
+.btn{
+    display: flex;
+    flex-direction: column;
+justify-content: center;
+/* text-align: center; */
+align-items: center;
+  
+}
+.btn:hover{
+    border: 0px solid black;
+}
+
+
+.input {
+ padding-bottom: 30px;
+}

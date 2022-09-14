@@ -1,0 +1,77 @@
+.App {
+  text-align: center;
+}
+
+.map-selection-container{
+  width: 80%;
+  display: flex;
+  justify-content: space-evenly;
+  padding-top: 70px;
+  margin: auto; 
+}
+
+.map-image{
+  width: 70%;
+}
+
+.map-card{
+  display: flex;
+  justify-content: space-around;
+}
+
+.game-card {
+  width: 50%;
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+  background-color:darkslategray;
+}
+
+.margin {
+  padding: 5%;
+} 
+
+.btn {
+  height: 5%;
+  margin-top: 5%;
+}
+
+.btn:hover {
+  color: green;
+  border: 2.5px green solid;
+}
+
+.start-page-container { 
+  margin: auto;
+  width: 50%;
+  margin-top: 10%;
+}
+
+.title {
+  text-align: center;
+}
+
+.btn-div {
+  width: fit-content;
+  margin: auto;
+  margin-bottom: 5%;
+}
+
+.map-container{
+  text-align: center;
+}
+
+.map-container:hover {
+  border: 3px green solid;
+}
+
+.create-btn:hover {
+  color: green;
+  cursor: pointer;
+}
+
+.create-btn-div {
+  text-align: center;
+  margin-top: 5%;
+}
+
